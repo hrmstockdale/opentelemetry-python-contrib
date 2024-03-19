@@ -372,7 +372,7 @@ class TestAwsLambdaInstrumentor(TestBase):
             span,
             {
                 SpanAttributes.FAAS_TRIGGER: "http",
-                SpanAttributes.HTTP_METHOD: "POST",
+                SpanAttributes.HTTP_REQUEST_METHOD: "POST",
                 SpanAttributes.HTTP_ROUTE: "/{proxy+}",
                 SpanAttributes.URL_PATH: "/{proxy+}?foo=bar",
                 SpanAttributes.NET_HOST_NAME: "1234567890.execute-api.us-east-1.amazonaws.com",
@@ -393,7 +393,7 @@ class TestAwsLambdaInstrumentor(TestBase):
             span,
             {
                 SpanAttributes.FAAS_TRIGGER: "http",
-                SpanAttributes.HTTP_METHOD: "POST",
+                SpanAttributes.HTTP_REQUEST_METHOD: "POST",
                 SpanAttributes.HTTP_ROUTE: "/path/to/resource",
                 SpanAttributes.URL_PATH: "/path/to/resource?parameter1=value1&parameter1=value2&parameter2=value",
                 SpanAttributes.NET_HOST_NAME: "id.execute-api.us-east-1.amazonaws.com",

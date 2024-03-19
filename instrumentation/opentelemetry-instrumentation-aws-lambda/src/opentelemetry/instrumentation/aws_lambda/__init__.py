@@ -200,7 +200,7 @@ def _set_api_gateway_v1_proxy_attributes(
     https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
     """
     span.set_attribute(
-        SpanAttributes.HTTP_METHOD, lambda_event.get("httpMethod")
+        SpanAttributes.HTTP_REQUEST_METHOD, lambda_event.get("httpMethod")
     )
 
     if lambda_event.get("headers"):
@@ -252,7 +252,7 @@ def _set_api_gateway_v2_proxy_attributes(
     if lambda_event["requestContext"].get("http"):
         if "method" in lambda_event["requestContext"]["http"]:
             span.set_attribute(
-                SpanAttributes.HTTP_METHOD,
+                SpanAttributes.HTTP_REQUEST_METHOD,
                 lambda_event["requestContext"]["http"]["method"],
             )
         if "userAgent" in lambda_event["requestContext"]["http"]:
