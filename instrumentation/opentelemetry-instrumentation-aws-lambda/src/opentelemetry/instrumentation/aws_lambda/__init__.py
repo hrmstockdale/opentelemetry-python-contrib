@@ -224,12 +224,12 @@ def _set_api_gateway_v1_proxy_attributes(
 
         if lambda_event.get("queryStringParameters"):
             span.set_attribute(
-                SpanAttributes.HTTP_TARGET,
+                SpanAttributes.URL_PATH,
                 f"{lambda_event['resource']}?{urlencode(lambda_event['queryStringParameters'])}",
             )
         else:
             span.set_attribute(
-                SpanAttributes.HTTP_TARGET, lambda_event["resource"]
+                SpanAttributes.URL_PATH, lambda_event["resource"]
             )
 
     return span
@@ -267,12 +267,12 @@ def _set_api_gateway_v2_proxy_attributes(
             )
             if lambda_event.get("rawQueryString"):
                 span.set_attribute(
-                    SpanAttributes.HTTP_TARGET,
+                    SpanAttributes.URL_PATH,
                     f"{lambda_event['requestContext']['http']['path']}?{lambda_event['rawQueryString']}",
                 )
             else:
                 span.set_attribute(
-                    SpanAttributes.HTTP_TARGET,
+                    SpanAttributes.URL_PATH,
                     lambda_event["requestContext"]["http"]["path"],
                 )
 
