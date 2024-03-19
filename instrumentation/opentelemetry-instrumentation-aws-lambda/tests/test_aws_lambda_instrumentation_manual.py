@@ -377,8 +377,8 @@ class TestAwsLambdaInstrumentor(TestBase):
                 SpanAttributes.URL_PATH: "/{proxy+}?foo=bar",
                 SpanAttributes.NET_HOST_NAME: "1234567890.execute-api.us-east-1.amazonaws.com",
                 SpanAttributes.HTTP_USER_AGENT: "Custom User Agent String",
-                SpanAttributes.HTTP_SCHEME: "https",
-                SpanAttributes.HTTP_STATUS_CODE: 200,
+                SpanAttributes.URL_SCHEME: "https",
+                SpanAttributes.HTTP_RESPONSE_STATUS_CODE: 200,
             },
         )
 

@@ -211,7 +211,7 @@ def _set_api_gateway_v1_proxy_attributes(
             )
         if "X-Forwarded-Proto" in lambda_event["headers"]:
             span.set_attribute(
-                SpanAttributes.HTTP_SCHEME,
+                SpanAttributes.URL_SCHEME,
                 lambda_event["headers"]["X-Forwarded-Proto"],
             )
         if "Host" in lambda_event["headers"]:
@@ -377,7 +377,7 @@ def _instrument(
 
                 if isinstance(result, dict) and result.get("statusCode"):
                     span.set_attribute(
-                        SpanAttributes.HTTP_STATUS_CODE,
+                        SpanAttributes.HTTP_RESPONSE_STATUS_CODE,
                         result.get("statusCode"),
                     )
 
