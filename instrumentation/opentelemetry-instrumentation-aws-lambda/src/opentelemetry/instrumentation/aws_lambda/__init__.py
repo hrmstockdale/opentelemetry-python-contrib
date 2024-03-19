@@ -206,7 +206,7 @@ def _set_api_gateway_v1_proxy_attributes(
     if lambda_event.get("headers"):
         if "User-Agent" in lambda_event["headers"]:
             span.set_attribute(
-                SpanAttributes.HTTP_USER_AGENT,
+                SpanAttributes.USER_AGENT_ORIGINAL,
                 lambda_event["headers"]["User-Agent"],
             )
         if "X-Forwarded-Proto" in lambda_event["headers"]:
@@ -257,7 +257,7 @@ def _set_api_gateway_v2_proxy_attributes(
             )
         if "userAgent" in lambda_event["requestContext"]["http"]:
             span.set_attribute(
-                SpanAttributes.HTTP_USER_AGENT,
+                SpanAttributes.USER_AGENT_ORIGINAL,
                 lambda_event["requestContext"]["http"]["userAgent"],
             )
         if "path" in lambda_event["requestContext"]["http"]:

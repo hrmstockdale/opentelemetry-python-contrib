@@ -376,7 +376,7 @@ class TestAwsLambdaInstrumentor(TestBase):
                 SpanAttributes.HTTP_ROUTE: "/{proxy+}",
                 SpanAttributes.URL_PATH: "/{proxy+}?foo=bar",
                 SpanAttributes.NET_HOST_NAME: "1234567890.execute-api.us-east-1.amazonaws.com",
-                SpanAttributes.HTTP_USER_AGENT: "Custom User Agent String",
+                SpanAttributes.USER_AGENT_ORIGINAL: "Custom User Agent String",
                 SpanAttributes.URL_SCHEME: "https",
                 SpanAttributes.HTTP_RESPONSE_STATUS_CODE: 200,
             },
@@ -397,7 +397,7 @@ class TestAwsLambdaInstrumentor(TestBase):
                 SpanAttributes.HTTP_ROUTE: "/path/to/resource",
                 SpanAttributes.URL_PATH: "/path/to/resource?parameter1=value1&parameter1=value2&parameter2=value",
                 SpanAttributes.NET_HOST_NAME: "id.execute-api.us-east-1.amazonaws.com",
-                SpanAttributes.HTTP_USER_AGENT: "agent",
+                SpanAttributes.USER_AGENT_ORIGINAL: "agent",
             },
         )
 
