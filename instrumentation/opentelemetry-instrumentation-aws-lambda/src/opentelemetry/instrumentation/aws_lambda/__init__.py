@@ -216,7 +216,7 @@ def _set_api_gateway_v1_proxy_attributes(
             )
         if "Host" in lambda_event["headers"]:
             span.set_attribute(
-                SpanAttributes.NET_HOST_NAME,
+                SpanAttributes.SERVER_ADDRESS,
                 lambda_event["headers"]["Host"],
             )
     if "resource" in lambda_event:
@@ -245,7 +245,7 @@ def _set_api_gateway_v2_proxy_attributes(
     """
     if "domainName" in lambda_event["requestContext"]:
         span.set_attribute(
-            SpanAttributes.NET_HOST_NAME,
+            SpanAttributes.SERVER_ADDRESS,
             lambda_event["requestContext"]["domainName"],
         )
 
