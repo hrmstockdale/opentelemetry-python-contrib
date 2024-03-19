@@ -350,7 +350,7 @@ def _instrument(
                     lambda_context.invoked_function_arn,
                 )
                 span.set_attribute(
-                    SpanAttributes.FAAS_EXECUTION,
+                    SpanAttributes.FAAS_INVOCATION_ID,
                     lambda_context.aws_request_id,
                 )
 
